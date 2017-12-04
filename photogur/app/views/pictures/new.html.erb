@@ -1,4 +1,15 @@
 <h2> New picture </h2>
+
+
+<% if @picture.errors.any?%>
+      <p><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</p>
+      <ul>
+      <% @picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+
 <%= form_for @picture do |f| %>
   <div class="field">
     <p><%= f.label :title %></p>
